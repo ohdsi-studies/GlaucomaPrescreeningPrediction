@@ -1,0 +1,671 @@
+{
+  "ConceptSets": [
+    {
+      "id": 7,
+      "name": "outpatient visits",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Visit",
+              "CONCEPT_CODE": "OP",
+              "CONCEPT_ID": 9202,
+              "CONCEPT_NAME": "Outpatient Visit",
+              "DOMAIN_ID": "Visit",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "Visit"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "name": "gps-eyevisitcondition-broad",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "HCPCS",
+              "CONCEPT_CODE": "S3000",
+              "CONCEPT_ID": 2721176,
+              "CONCEPT_NAME": "Diabetic indicator; retinal eye exam, dilated, bilateral",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "HCPCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "276342005",
+              "CONCEPT_ID": 4078461,
+              "CONCEPT_NAME": "Ophthalmological and optical investigations",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4 Hierarchy",
+              "CONCEPT_CODE": "1035689",
+              "CONCEPT_ID": 709801,
+              "CONCEPT_NAME": "Dilated retinal eye exam with interpretation by an ophthalmologist or optometrist documented and reviewed",
+              "DOMAIN_ID": "Observation",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "C",
+              "STANDARD_CONCEPT_CAPTION": "Classification",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "LOINC Class",
+              "CONCEPT_CODE": "EYE.PX",
+              "CONCEPT_ID": 45876212,
+              "CONCEPT_NAME": "Ophthalmology physical findings",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "C",
+              "STANDARD_CONCEPT_CAPTION": "Classification",
+              "VOCABULARY_ID": "LOINC"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "92015",
+              "CONCEPT_ID": 2313637,
+              "CONCEPT_NAME": "Determination of refractive state",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "82036007",
+              "CONCEPT_ID": 4218754,
+              "CONCEPT_NAME": "Injection of posterior segment of eye",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "36228007",
+              "CONCEPT_ID": 4263508,
+              "CONCEPT_NAME": "Ophthalmic examination and evaluation",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "118910000",
+              "CONCEPT_ID": 4042493,
+              "CONCEPT_NAME": "Procedure on posterior segment of eye",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "252886007",
+              "CONCEPT_ID": 4098814,
+              "CONCEPT_NAME": "Refraction assessment",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Observation",
+              "CONCEPT_CODE": "79897-5",
+              "CONCEPT_ID": 21491761,
+              "CONCEPT_NAME": "Eye Physical findings panel",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "359957005",
+              "CONCEPT_ID": 4232642,
+              "CONCEPT_NAME": "Photocoagulation of eye",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "301978000",
+              "CONCEPT_ID": 4200056,
+              "CONCEPT_NAME": "Finding of vision of eye",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "HCPCS",
+              "CONCEPT_CODE": "G9974",
+              "CONCEPT_ID": 937623,
+              "CONCEPT_NAME": "Dilated macular exam performed, including documentation of the presence or absence of macular thickening or geographic atrophy or hemorrhage and the level of macular degeneration severity",
+              "DOMAIN_ID": "Observation",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "HCPCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "274412005",
+              "CONCEPT_ID": 4167406,
+              "CONCEPT_NAME": "Eye disorder screening",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "92083",
+              "CONCEPT_ID": 2313647,
+              "CONCEPT_NAME": "Visual field examination, unilateral or bilateral, with interpretation and report; extended examination (eg, Goldmann visual fields with at least 3 isopters plotted and static determination within the central 30, or quantitative, automated threshold perim",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "92133",
+              "CONCEPT_ID": 40757035,
+              "CONCEPT_NAME": "Scanning computerized ophthalmic diagnostic imaging, posterior segment, with interpretation and report, unilateral or bilateral; optic nerve",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "76514",
+              "CONCEPT_ID": 2211733,
+              "CONCEPT_NAME": "Ophthalmic ultrasound, diagnostic; corneal pachymetry, unilateral or bilateral (determination of corneal thickness)",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "66821",
+              "CONCEPT_ID": 2111004,
+              "CONCEPT_NAME": "Discission of secondary membranous cataract (opacified posterior lens capsule and/or anterior hyaloid); laser surgery (eg, YAG laser) (1 or more stages)",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "371405004",
+              "CONCEPT_ID": 375252,
+              "CONCEPT_NAME": "Disorder of eye",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "118235002",
+              "CONCEPT_ID": 4038502,
+              "CONCEPT_NAME": "Eye / vision finding",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    }
+  ],
+  "PrimaryCriteria": {
+    "CriteriaList": [
+      {
+        "VisitOccurrence": {
+          "CodesetId": 7
+        }
+      }
+    ],
+    "ObservationWindow": {
+      "PriorDays": 0,
+      "PostDays": 0
+    },
+    "PrimaryCriteriaLimit": {
+      "Type": "All"
+    }
+  },
+  "QualifiedLimit": {
+    "Type": "First"
+  },
+  "ExpressionLimit": {
+    "Type": "All"
+  },
+  "InclusionRules": [
+    {
+      "name": "eye screening and measurements ",
+      "expression": {
+        "Type": "ANY",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ProcedureOccurrence": {
+                "CodesetId": 9
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Measurement": {
+                "CodesetId": 9
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 9
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "ophthalmologist",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "VisitOccurrence": {
+                "CodesetId": 7,
+                "ProviderSpecialty": [
+                  {
+                    "CONCEPT_CODE": "18",
+                    "CONCEPT_ID": 38004463,
+                    "CONCEPT_NAME": "Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "Medicare Specialty"
+                  },
+                  {
+                    "CONCEPT_CODE": "207WX0009X",
+                    "CONCEPT_ID": 903238,
+                    "CONCEPT_NAME": "Glaucoma Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "NUCC"
+                  },
+                  {
+                    "CONCEPT_CODE": "207WX0107X",
+                    "CONCEPT_ID": 903239,
+                    "CONCEPT_NAME": "Retina Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "NUCC"
+                  },
+                  {
+                    "CONCEPT_CODE": "207WX0108X",
+                    "CONCEPT_ID": 903240,
+                    "CONCEPT_NAME": "Uveitis and Ocular Inflammatory Disease Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "NUCC"
+                  },
+                  {
+                    "CONCEPT_CODE": "207WX0120X",
+                    "CONCEPT_ID": 903243,
+                    "CONCEPT_NAME": "Cornea and External Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "NUCC"
+                  },
+                  {
+                    "CONCEPT_CODE": "152WC0802X",
+                    "CONCEPT_ID": 38003700,
+                    "CONCEPT_NAME": "Corneal and Contact Management Optometrist",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "NUCC"
+                  },
+                  {
+                    "CONCEPT_CODE": "41",
+                    "CONCEPT_ID": 38004481,
+                    "CONCEPT_NAME": "Optometry",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "Medicare Specialty"
+                  },
+                  {
+                    "CONCEPT_CODE": "130",
+                    "CONCEPT_ID": 44777732,
+                    "CONCEPT_NAME": "Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "HES Specialty"
+                  },
+                  {
+                    "CONCEPT_CODE": "207W00000X",
+                    "CONCEPT_ID": 38003907,
+                    "CONCEPT_NAME": "Allopathic & Osteopathic Physicians, Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "NUCC"
+                  },
+                  {
+                    "CONCEPT_CODE": "207WX0109X",
+                    "CONCEPT_ID": 903241,
+                    "CONCEPT_NAME": "Neuro-Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "NUCC"
+                  },
+                  {
+                    "CONCEPT_CODE": "207WX0110X",
+                    "CONCEPT_ID": 903242,
+                    "CONCEPT_NAME": "Pediatric Ophthalmology and Strabismus",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "NUCC"
+                  },
+                  {
+                    "CONCEPT_CODE": "207WX0200X",
+                    "CONCEPT_ID": 903244,
+                    "CONCEPT_NAME": "Ophthalmic Plastic and Reconstructive Surgery",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "NUCC"
+                  },
+                  {
+                    "CONCEPT_CODE": "216",
+                    "CONCEPT_ID": 44777755,
+                    "CONCEPT_NAME": "Paediatric Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "HES Specialty"
+                  },
+                  {
+                    "CONCEPT_CODE": "309382008",
+                    "CONCEPT_ID": 4202949,
+                    "CONCEPT_NAME": "Ophthalmic surgeon",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "SNOMED"
+                  },
+                  {
+                    "CONCEPT_CODE": "309382008",
+                    "CONCEPT_ID": 3198485,
+                    "CONCEPT_NAME": "Ophthalmic surgeon",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "Nebraska Lexicon"
+                  },
+                  {
+                    "CONCEPT_CODE": "422140007",
+                    "CONCEPT_ID": 4223774,
+                    "CONCEPT_NAME": "Medical ophthalmologist",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "SNOMED"
+                  },
+                  {
+                    "CONCEPT_CODE": "422140007",
+                    "CONCEPT_ID": 3198849,
+                    "CONCEPT_NAME": "Medical ophthalmologist",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "Nebraska Lexicon"
+                  },
+                  {
+                    "CONCEPT_CODE": "422234006",
+                    "CONCEPT_ID": 3198068,
+                    "CONCEPT_NAME": "Ophthalmologist",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "Nebraska Lexicon"
+                  },
+                  {
+                    "CONCEPT_CODE": "422234006",
+                    "CONCEPT_ID": 4226258,
+                    "CONCEPT_NAME": "Ophthalmologist",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "SNOMED"
+                  },
+                  {
+                    "CONCEPT_CODE": "Ophthalmology",
+                    "CONCEPT_ID": 2000038978,
+                    "CONCEPT_NAME": "Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "STANFORD_PROV_SPEC"
+                  },
+                  {
+                    "CONCEPT_CODE": "Pediatric Ophthalmology",
+                    "CONCEPT_ID": 2000039057,
+                    "CONCEPT_NAME": "Pediatric Ophthalmology",
+                    "DOMAIN_ID": "Provider",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "STANFORD_PROV_SPEC"
+                  }
+                ]
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    }
+  ],
+  "EndStrategy": {
+    "DateOffset": {
+      "DateField": "StartDate",
+      "Offset": 0
+    }
+  },
+  "CensoringCriteria": [],
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {},
+  "cdmVersionRange": ">=5.0.0"
+}
