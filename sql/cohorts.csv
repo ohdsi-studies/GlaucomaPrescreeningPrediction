@@ -1,7 +1,11 @@
 stanford_atlas_id,cohort_id,cohort_type,cohort_name,logic_description,generate_stats
 2489,100,inclusion,eyevisit-specialty-specific,must have visit with eye specialty provider and one of a more specific set of eye visit markers derived from Cindy's DR network study (total 1463 concepts),
+2555,110,inclusion,GPS-target-age40-earliest-withspecialty,must have visit with eye specialty provider and require 180 days prior observation; select earliest qualifying eye screening event (w/ eye specialty provider); age ≥40; end at end of continuous observation
+2556,111,inclusion,GPS-target-age40-latest-withspecialty,must have visit with eye specialty provider and require 180 days prior observation; select latest qualifying eye screening event (w/ eye specialty provider); age ≥40; end at end of continuous observation
 2490,200,inclusion,eyevisit-nospecialty-specific,must have one of a more specific set of eye visit markers derived from Cindy's DR network study,
 2499,201,inclusion,eyevisit-nospecialty-specific-age-180-lookback,similar to id 200 with 180 days prior observation and age requirement,
+2553,210,inclusion,GPS-target-age40-earliest-nospecialty,must have one of the eye visit markers and require 180 days prior observation; select earliest qualifying eye screening event; age ≥40; end at end of continuous observation
+2554,211,inclusion,GPS-target-age40-latest-nospecialty,must have one of the eye visit markers and require 180 days prior observation; select latest qualifying eye screening event; age ≥40; end at end of continuous observation
 2491,300,inclusion,eyevisit-nospecialty-broad,must have one of a broader set of eye visit markers which includes all eye findings (10785 concepts),
 2492,400,inclusion,eyevisit-specialty-broad,must have visit with eye specialty provider and one of the broader set of eye visit markers which includes all eye findings,
 2527,500,outcome,GPS-target-glauc-condition-1, one visit with glaucoma condition for entry, 
