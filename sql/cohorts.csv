@@ -8,3 +8,6 @@ stanford_atlas_id,cohort_id,cohort_type,cohort_name,logic_description,generate_s
 2528,600,outcome,GPS-target-glauc-condition-2, two separate days of visits with glaucoma condition (one for entry and another at least 1 day later for inclusion),
 2529,700,outcome,GPS-target-glauc-condition-tx-1, one occurrence of glaucoma condition medication or slt/surgery for entry,
 2530,800,outcome,GPS-target-glauc-condition-tx-2, two separate days of glaucoma condition medication or slt/surgery (one for entry and another at least 1 day later for inclusion), 
+2542 ,801 ,outcome,GPS-target-glauc-condition-tx-2-medsas2ndcriteria,"glaucoma condition or slt/surgery, plus at least 1 day later glaucoma condition, slt/surgery, or med. (removes meds from initial inclusion)",
+2552 ,900,outcome,GPS-target-glauc-suspect-condition,"glaucoma or glaucoma suspect condition or slt/surgery, plus at least 1 day later glaucoma condition, slt/surgery, or med""",
+,,,,,
