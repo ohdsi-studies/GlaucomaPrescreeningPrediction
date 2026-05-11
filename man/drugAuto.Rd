@@ -7,8 +7,8 @@
 drugAuto(
   trainData,
   featureEngineeringSettings = list(drugAnalysisId = 301, drugCodeLoc =
-    system.file("drugs_codes.pkl", package = "GlaucomaPrescreeningPrediction"),
-    autoEncoderLoc = system.file("drugs_autoencoder_model_ALL_OF_US.h5", package =
+    system.file("models/drugs_codes.pkl", package = "GlaucomaPrescreeningPrediction"),
+    autoEncoderLoc = system.file("models/drugs_autoencoder_model_ALL_OF_US.h5", package =
     "GlaucomaPrescreeningPrediction"))
 )
 }

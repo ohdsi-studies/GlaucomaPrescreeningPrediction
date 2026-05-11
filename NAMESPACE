@@ -3,6 +3,7 @@
 export(condAuto)
 export(createMeasurementCovariateSettings)
 export(drugAuto)
+export(execute)
 export(getMeasurementCovariateData)
 export(getModel)
 import(keras)

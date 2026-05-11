@@ -17,3 +17,30 @@
 [Description (single paragraph)]
 
 [You can add other text at this point]
+
+# Code to run study 
+```
+cohortTable <- 'glau_screen_cohort'
+cdmDatabaseSchema <- '<add schema with OMOP CDM data>'
+cohortDatabaseSchema <- '<add schema with read/write access>'
+tempEmulationSchema <- Sys.getenv("DATABRICKS_SCRATCH_SCHEMA")
+options(sqlRenderTempEmulationSchema = tempEmulationSchema)
+
+
+# get data
+connectionDetails <- <add connection details>
+
+# TODO: add code to create cohorts here
+
+# run the model
+results <- GlaucomaPrescreeningPrediction::execute(
+    connectionDetails = connectionDetails,
+    cdmDatabaseSchema = cdmDatabaseSchema,
+    cohortDatabaseSchema = cohortDatabaseSchema,
+    tempEmulationSchema = tempEmulationSchema,
+    cohortTable = cohortTable,
+    targetId = 23884,
+    outcomeId = 23933,
+    sampleSize = 40000
+)
+```

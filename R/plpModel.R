@@ -76,6 +76,7 @@ plpModel <- list(
       washoutPeriod = 180,
       firstExposureOnly = TRUE,
       removeSubjectsWithPriorOutcome = TRUE,
+      requireTimeAtRisk = FALSE,
       priorOutcomeLookback = 9999,
       includeAllOutcomes = FALSE,
       riskWindowStart = 0,
