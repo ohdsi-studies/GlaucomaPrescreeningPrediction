@@ -20,6 +20,14 @@
 
 # Code to run study 
 ```
+# first install the package
+remotes::install_github('ohdsi-studies/GlaucomaPrescreeningPrediction')
+
+# set up python environment to use 
+reticulate::virtualenv_create("glaucoma-screen", requirements = system.file('requirements.txt', package = 'GlaucomaPrescreeningPrediction'))
+reticulate::use_virtualenv("glaucoma-screen")
+
+# Specify the connection stuff 
 cohortTable <- 'glau_screen_cohort'
 cdmDatabaseSchema <- '<add schema with OMOP CDM data>'
 cohortDatabaseSchema <- '<add schema with read/write access>'
