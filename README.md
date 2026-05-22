@@ -1,4 +1,4 @@
-[Study title]
+Predicting Risk of Glaucoma Using Systemic Health EHR: An OHDSI Network Study
 =============
 
 <img src="https://img.shields.io/badge/Study%20Status-Repo%20Created-lightgray.svg" alt="Study Status: Repo Created">
@@ -10,7 +10,7 @@
 - Study lead forums tag: **[[Lead tag]](https://forums.ohdsi.org/u/[Lead tag])**
 - Study start date: **-**
 - Study end date: **-**
-- Protocol: **-**
+- Protocol: https://docs.google.com/document/d/1pHer1gzllbnq-6UCIQL--NUfhIPN9GlhlwLyQYZM6hI/edit?tab=t.0#heading=h.tpo62gywyto2
 - Publications: **-**
 - Results explorer: **-**
 
