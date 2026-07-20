@@ -48,5 +48,5 @@ generateCohorts <- function(
   )
 
   message('Done')
-  return(TRUE)
+  return(invisible(TRUE))
 }
