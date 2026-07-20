@@ -38,7 +38,14 @@ options(sqlRenderTempEmulationSchema = tempEmulationSchema)
 # get data
 connectionDetails <- <add connection details>
 
-# TODO: add code to create cohorts here
+# create cohorts for study
+GlaucomaPrescreeningPrediction::generateCohorts(
+    connectionDetails = connectionDetails,
+    cdmDatabaseSchema = cdmDatabaseSchema,
+    cohortDatabaseSchema = cohortDatabaseSchema,
+    cohortTableName  = cohortTable,
+    tempEmulationSchema = tempEmulationSchema
+    )
 
 # run the model
 results <- GlaucomaPrescreeningPrediction::execute(

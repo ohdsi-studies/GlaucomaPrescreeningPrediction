@@ -11,4 +11,9 @@ A package for implementing an existing glaucoma screening model.
 \author{
 \strong{Maintainer}: Jenna Reps \email{jreps@its.jnj.com}
 
+Authors:
+\itemize{
+  \item Jenna Reps \email{jreps@its.jnj.com}
+}
+
 }
