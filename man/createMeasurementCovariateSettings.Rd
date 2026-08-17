@@ -20,7 +20,10 @@ createMeasurementCovariateSettings(
   maxVal = NULL,
   aggregateMethod = "recent",
   covariateId = 1444,
-  analysisId = 444
+  analysisId = 444,
+  scaleMin = NULL,
+  scaleMax = NULL,
+  imputatedValue = NULL
 )
 }
 \arguments{
@@ -51,6 +54,12 @@ createMeasurementCovariateSettings(
 \item{covariateId}{a unique value for the covariateId}
 
 \item{analysisId}{a unique value for the analysisId}
+
+\item{scaleMin}{The min value to scale by}
+
+\item{scaleMax}{The max value to scale by}
+
+\item{imputatedValue}{(optional) The value to impute if there is no value}
 }
 \value{
 An object of class `covariateSettings` specifying how to create the cohort covariate with the covariateId

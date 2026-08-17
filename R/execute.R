@@ -13,7 +13,7 @@
 #' @param sampleSize Number of patients to sample from the full target cohort
 #'
 #' @return
-#' A list with the prediction data.frame and evaluation list
+#' A list with the prediction data.frame and evaluation list and the data
 #' @export
 execute <- function(
     connectionDetails,
@@ -66,6 +66,7 @@ execute <- function(
 
 return(list(
   prediction = prediction,
-  evaluation = evaluation
+  evaluation = evaluation,
+  plpData = newData
 ))
 }

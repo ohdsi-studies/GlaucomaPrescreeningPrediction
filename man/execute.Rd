@@ -33,7 +33,7 @@ execute(
 \item{sampleSize}{Number of patients to sample from the full target cohort}
 }
 \value{
-A list with the prediction data.frame and evaluation list
+A list with the prediction data.frame and evaluation list and the data
 }
 \description{
 Validates the glaucoma model

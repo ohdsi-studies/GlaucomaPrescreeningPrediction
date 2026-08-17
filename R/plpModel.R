@@ -36,7 +36,10 @@ getModel <- function(
         endDay=-1,
         aggregateMethod = 'recent',
         covariateId = i*1000+444,
-        analysisId = 444
+        analysisId = 444,
+        imputatedValue = measurements[[i]]$median,
+        scaleMax = measurements[[i]]$max,
+        scaleMin = measurements[[i]]$min
       )
     }
   )
@@ -111,6 +114,17 @@ plpModel <- list(
             autoEncoderLoc = system.file(paste0('models/',drugAuto), package = 'GlaucomaPrescreeningPrediction')
           )
         )
+      ),
+      list(
+        funct = 'GlaucomaPrescreeningPrediction::implementAgeScale',
+        settings = list(
+          trainData = NULL,
+          featureEngineeringSettings = list(
+            min = 21,
+            max = 109
+          ),
+          model = 'not NULL'
+        )
       )
     )
   ),
@@ -129,7 +143,7 @@ plpModel <- list(
     covariateId = c(
       (1:128)*1000+341, # drug embed
       (1:128)*1000+141, # condition embed
-      1002, # age (years)
+      2002, # age ( scaled years)
       38003564005, # 'nonhispanic'
       38003563005, # 'hispanic'
       -1, # 'other'
