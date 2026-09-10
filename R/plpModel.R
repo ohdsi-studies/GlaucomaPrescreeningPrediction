@@ -6,21 +6,19 @@
 #'
 #' @param modelName filename of the model
 #' @param conditionFile filename of the pickle with the condition codes
-#' @param conditionAuto filename of the condition autoencoder
+#' @param conditionAutoFile filename of the condition autoencoder
 #' @param drugFile filename of the pickle with the drug codes
-#' @param drugAuto filename of the drug autoencoder
-#' @param sampleSize Number of patients to sample from the full target cohort
+#' @param drugAutoFile filename of the drug autoencoder
 #'
 #' @return
 #' CovariateData object with covariates, covariateRef, and analysisRef tables
 #' @export
 getModel <- function(
     modelName = 'model_ALL_OF_US.h5',
-    conditionFile = 'diag_codes.pkl',
-    conditionAuto = 'diag_autoencoder_model_ALL_OF_US.h5',
-    drugFile = 'drugs_codes.pkl',
-    drugAuto = 'drugs_autoencoder_model_ALL_OF_US.h5',
-    sampleSize = NULL
+    conditionFile = 'diag_codes_ALL_OF_US.pkl',
+    conditionAutoFile = 'diag_autoencoder_model_ALL_OF_US.h5',
+    drugFile = 'drugs_codes_ALL_OF_US.pkl',
+    drugAutoFile = 'drugs_autoencoder_model_ALL_OF_US.h5'
     ){
 
   measurements <- getMeasurements()
@@ -72,9 +70,7 @@ plpModel <- list(
 
   modelDesign = PatientLevelPrediction::createModelDesign(
     targetId = 23884, outcomeId = 23933,
-    restrictPlpDataSettings = PatientLevelPrediction::createRestrictPlpDataSettings(
-      sampleSize = sampleSize
-    ),
+    restrictPlpDataSettings = PatientLevelPrediction::createRestrictPlpDataSettings(),
     populationSettings = PatientLevelPrediction::createStudyPopulationSettings(
       washoutPeriod = 180,
       firstExposureOnly = TRUE,
@@ -100,7 +96,7 @@ plpModel <- list(
           featureEngineeringSettings = list(
             conditionAnalysisId = 101,
             conditionCodeLoc = system.file(paste0('models/',conditionFile), package = 'GlaucomaPrescreeningPrediction'),
-            autoEncoderLoc = system.file(paste0('models/',conditionAuto), package = 'GlaucomaPrescreeningPrediction')
+            autoEncoderLoc = system.file(paste0('models/',conditionAutoFile), package = 'GlaucomaPrescreeningPrediction')
           )
         )
       ),
@@ -111,7 +107,7 @@ plpModel <- list(
           featureEngineeringSettings = list(
             drugAnalysisId = 301,
             drugCodeLoc = system.file(paste0('models/',drugFile), package = 'GlaucomaPrescreeningPrediction'),
-            autoEncoderLoc = system.file(paste0('models/',drugAuto), package = 'GlaucomaPrescreeningPrediction')
+            autoEncoderLoc = system.file(paste0('models/',drugAutoFile), package = 'GlaucomaPrescreeningPrediction')
           )
         )
       ),
@@ -139,7 +135,7 @@ plpModel <- list(
   #.    ohe race. (0: 'other', 8515: 'asian', 8527: 'white', 8516: 'black', 8557: 'nhpi', 8657: 'aian')
   # labs = 31
   covariateImportance = data.frame(
-    columnId = 1:299, # have 256 from drugs/conds - 43 others
+    columnId = 1:300, # have 256 from drugs/conds - 43 others
     covariateId = c(
       (1:128)*1000+341, # drug embed
       (1:128)*1000+141, # condition embed
@@ -149,12 +145,21 @@ plpModel <- list(
       -1, # 'other'
       8507001, # 'male'
       8532001, #' female'
-      8522004,   # 'other'
-      8515004,   # 'asian'
-      8527004, # 'white'
-      8516004,   # 'black'
-      -1,  # 'nhpi'
+      8521001, #'other gender' NEW
+      # "race_asian", "race_black", "race_mena", "race_nhpi", "race_other", "race_white",
       -1, # 'aian',
+      8516004,   # 'black'
+      -1, # mena
+      -1,  # 'nhpi'
+      8522004,   # 'other'
+      8527004, # 'white'
+      # previous race order
+      #8522004,   # 'other'
+      #8515004,   # 'asian'
+      #8527004, # 'white'
+      #8516004,   # 'black'
+     # -1,  # 'nhpi'
+      #-1, # 'aian',
       (1:31)*1000+444
     )
   )

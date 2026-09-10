@@ -1,3 +1,8 @@
+# add a function that runs all the parts (with optional inputs)
+
+
+
+
 #' Validates the glaucoma model
 #'
 #' @details
@@ -23,10 +28,18 @@ execute <- function(
     cohortTable = 'glau_screen_cohort',
     targetId = 23884,
     outcomeId = 23933,
-    sampleSize = NULL
+    sampleSize = NULL,
+    model = c('ALL_OF_US_8_17_26_221','ALL_OF_US')[1],
+    modelType = c('.keras','.h5')[1]
     ){
 
-  plpModel <- GlaucomaPrescreeningPrediction::getModel()
+  plpModel <- GlaucomaPrescreeningPrediction::getModel(
+    modelName = paste0('model_',model,modelType),
+    conditionFile = paste0('diag_codes_',model,'.pkl'),
+    conditionAutoFile = paste0('diag_autoencoder_model_',model,modelType),
+    drugFile = paste0('drugs_codes_',model,'.pkl'),
+    drugAutoFile = paste0('drugs_autoencoder_model_',model,modelType)
+  )
 
   newData <- PatientLevelPrediction::getPlpData(
     databaseDetails = PatientLevelPrediction::createDatabaseDetails(
@@ -69,4 +82,14 @@ return(list(
   evaluation = evaluation,
   plpData = newData
 ))
+}
+
+# run a baseline LR model
+developBaselineLr <- function(plpData){
+
+  # do not restrict to the same features the model used
+
+
+  # restrict to the same features that the model used
+
 }

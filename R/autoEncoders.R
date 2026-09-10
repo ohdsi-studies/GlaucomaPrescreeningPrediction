@@ -18,12 +18,14 @@ condAuto <- function(
     trainData,
     featureEngineeringSettings = list(
       conditionAnalysisId = 101,
-      conditionCodeLoc = system.file("models/diag_codes.pkl", package = 'GlaucomaPrescreeningPrediction'),
+      conditionCodeLoc = system.file("models/diag_codes_ALL_OF_US.pkl", package = 'GlaucomaPrescreeningPrediction'),
       autoEncoderLoc = system.file('models/diag_autoencoder_model_ALL_OF_US.h5', package = 'GlaucomaPrescreeningPrediction')
     )){
 
+  keras <- reticulate::import("keras")
   pd <- reticulate::import("pandas")
 
+  message(paste0('loading condition pickle from ', featureEngineeringSettings$conditionCodeLoc))
   diag <- pd$read_pickle(featureEngineeringSettings$conditionCodeLoc)
   conConcepts <- gsub('omop_', '', diag)
 
@@ -40,6 +42,7 @@ condAuto <- function(
   )
 
   # now load the autoencoder
+  message(paste0('loading condition encoder from ', featureEngineeringSettings$autoEncoderLoc))
   diagAuto <- keras$models$load_model(
     filepath = featureEngineeringSettings$autoEncoderLoc,
     compile = FALSE
@@ -81,11 +84,13 @@ condAuto <- function(
 
   # remove the condition covariates as no longer needed
   trainData$covariateData$covariates <- trainData$covariateData$covariates %>%
-    dplyr::filter(!.data$covariateId %in% conditionAutoMap$covariateId)
+    dplyr::filter(!.data$covariateId %in% conditionAutoMap$covariateId) %>%
+    dplyr::collect()
 
   # update covariate Ref
   trainData$covariateData$covariateRef <- trainData$covariateData$covariateRef %>%
-    dplyr::filter(!.data$covariateId %in% conditionAutoMap$covariateId)
+    dplyr::filter(!.data$covariateId %in% conditionAutoMap$covariateId) %>%
+    dplyr::collect()
 
   newCovRef <- data.frame(
     covariateId = (1:maxCol)*1000+141,
@@ -122,12 +127,14 @@ drugAuto <- function(
     trainData,
     featureEngineeringSettings = list(
       drugAnalysisId = 301,
-      drugCodeLoc = system.file("models/drugs_codes.pkl", package = 'GlaucomaPrescreeningPrediction'),
+      drugCodeLoc = system.file("models/drugs_codes_ALL_OF_US.pkl", package = 'GlaucomaPrescreeningPrediction'),
       autoEncoderLoc = system.file('models/drugs_autoencoder_model_ALL_OF_US.h5', package = 'GlaucomaPrescreeningPrediction')
     )){
 
+  keras <- reticulate::import("keras")
   pd <- reticulate::import("pandas")
 
+  message(paste0('loading drug pickle from ', featureEngineeringSettings$drugCodeLoc))
   drugs <- pd$read_pickle(featureEngineeringSettings$drugCodeLoc)
   drugConcepts <- gsub('omop_', '', drugs)
 
@@ -144,6 +151,7 @@ drugAuto <- function(
   )
 
   # now load the autoencoder
+  message(paste0('loading drug autencoder from ', featureEngineeringSettings$autoEncoderLoc))
   drugAuto <- keras$models$load_model(
     filepath = featureEngineeringSettings$autoEncoderLoc,
     compile = FALSE
@@ -186,11 +194,13 @@ drugAuto <- function(
 
   # remove the condition covariates as no longer needed
   trainData$covariateData$covariates <- trainData$covariateData$covariates %>%
-    dplyr::filter(!.data$covariateId %in% drugAutoMap$covariateId)
+    dplyr::filter(!.data$covariateId %in% drugAutoMap$covariateId) %>%
+    dplyr::collect()
 
   # update covariate Ref
   trainData$covariateData$covariateRef <- trainData$covariateData$covariateRef %>%
-    dplyr::filter(!.data$covariateId %in% drugAutoMap$covariateId)
+    dplyr::filter(!.data$covariateId %in% drugAutoMap$covariateId) %>%
+    dplyr::collect()
 
   newCovRef <- data.frame(
     covariateId = (1:maxCol)*1000+341,
