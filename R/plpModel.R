@@ -134,40 +134,45 @@ plpModel <- list(
   #.                  8507001, 8532001
   #.    ohe race. (0: 'other', 8515: 'asian', 8527: 'white', 8516: 'black', 8557: 'nhpi', 8657: 'aian')
   # labs = 31
-  covariateImportance = data.frame(
-    columnId = 1:300, # have 256 from drugs/conds - 43 others
-    covariateId = c(
-      (1:128)*1000+341, # drug embed
-      (1:128)*1000+141, # condition embed
-      2002, # age ( scaled years)
-      38003564005, # 'nonhispanic'
-      38003563005, # 'hispanic'
-      -1, # 'other'
-      8507001, # 'male'
-      8532001, #' female'
-      8521001, #'other gender' NEW
-      # "race_asian", "race_black", "race_mena", "race_nhpi", "race_other", "race_white",
-      -1, # 'aian',
-      8516004,   # 'black'
-      -1, # mena
-      -1,  # 'nhpi'
-      8522004,   # 'other'
-      8527004, # 'white'
-      # previous race order
-      #8522004,   # 'other'
-      #8515004,   # 'asian'
-      #8527004, # 'white'
-      #8516004,   # 'black'
-     # -1,  # 'nhpi'
-      #-1, # 'aian',
-      (1:31)*1000+444
-    )
-  )
+  covariateImportance = covariateMap()
 )
 attr(plpModel, "predictionFunction") <- predictKeras
 class(plpModel) <- 'plpModel'
 
 return(plpModel)
+}
+
+covariateMap <- function(){
+  map <- data.frame(
+    columnId = 1:300, # have 256 from drugs/conds - 43 others
+    covariateId = c(
+    (1:128)*1000+341, # drug embed
+    (1:128)*1000+141, # condition embed
+    2002, # age ( scaled years)
+    38003564005, # 'nonhispanic'
+    38003563005, # 'hispanic'
+    -1, # 'other'
+    8507001, # 'male'
+    8532001, #' female'
+    8521001, #'other gender' NEW
+    # "race_asian", "race_black", "race_mena", "race_nhpi", "race_other", "race_white",
+    -1, # 'aian',
+    8516004,   # 'black'
+    -1, # mena
+    -1,  # 'nhpi'
+    8522004,   # 'other'
+    8527004, # 'white'
+    # previous race order
+    #8522004,   # 'other'
+    #8515004,   # 'asian'
+    #8527004, # 'white'
+    #8516004,   # 'black'
+    # -1,  # 'nhpi'
+    #-1, # 'aian',
+    (1:31)*1000+444
+  ))
+
+  return(map)
 }
 
 
