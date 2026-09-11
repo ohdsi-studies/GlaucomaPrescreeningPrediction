@@ -54,7 +54,7 @@ trainSaveModel <- function(
     )
 
     model$compile(
-        optimizer = keras$optimizers$Adam(learning_rate = 1e-3),
+        optimizer = keras$optimizers$Adam(learning_rate = 3e-4), # reduced the LR
         loss = keras$losses$BinaryCrossentropy(),
         metrics = metrics_list
     )
@@ -70,13 +70,39 @@ trainSaveModel <- function(
     x_val <-  np$array(my_matrix, dtype = 'float32')
     y_val <-  np$array(as.integer(valY), dtype = 'int32')
 
+    # CLASS WEIGHTS
+    if(!is.null(classWeight)){
+      message("Setting class weights normalized")
+      weightsList <- list("0" = 1.0/(1+classWeight), "1" = classWeight/(1+classWeight))
+      # 2. Force convert it to a Python dictionary with integer keys
+      pyClassWeights <- reticulate::dict(weightsList)
+      print(reticulate::py_to_r(pyClassWeights))
+    } else{
+      message("Setting class weights to ballanced")
+      sk_utils <- reticulate::import("sklearn.utils.class_weight")
+      py_builtins <- reticulate::import("builtins")
+
+      # Calculate balanced weights based on training labels (y_train)
+      computedWeights <- sk_utils$compute_class_weight(
+        class_weight = "balanced",
+        classes = np$array(unique(as.integer(trainY)), dtype = 'int32'),
+        y = y_train
+      )
+
+      # Convert to an integer-keyed Python dictionary
+      pyClassWeights <- py_builtins$dict(py_builtins$zip(np$array(unique(as.integer(trainY)), dtype = 'int32'), computedWeights))
+
+      print(reticulate::py_to_r(pyClassWeights))
+      #pyClassWeights <- NULL
+    }
+
     model$fit(
       x = x_train,
       y =  y_train,
       epochs=as.integer(150),
       shuffle=TRUE,
       batch_size=as.integer(64),
-      class_weight=classWeight,
+      class_weight=pyClassWeights,#classWeight,
       callbacks=early_stopping,
       validation_data=reticulate::tuple(x_val, y_val)
       )
