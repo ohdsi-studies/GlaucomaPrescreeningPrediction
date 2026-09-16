@@ -6,11 +6,10 @@
 \usage{
 getModel(
   modelName = "model_ALL_OF_US.h5",
-  conditionFile = "diag_codes.pkl",
-  conditionAuto = "diag_autoencoder_model_ALL_OF_US.h5",
-  drugFile = "drugs_codes.pkl",
-  drugAuto = "drugs_autoencoder_model_ALL_OF_US.h5",
-  sampleSize = NULL
+  conditionFile = "diag_codes_ALL_OF_US.pkl",
+  conditionAutoFile = "diag_autoencoder_model_ALL_OF_US.h5",
+  drugFile = "drugs_codes_ALL_OF_US.pkl",
+  drugAutoFile = "drugs_autoencoder_model_ALL_OF_US.h5"
 )
 }
 \arguments{
@@ -18,13 +17,11 @@ getModel(
 
 \item{conditionFile}{filename of the pickle with the condition codes}
 
-\item{conditionAuto}{filename of the condition autoencoder}
+\item{conditionAutoFile}{filename of the condition autoencoder}
 
 \item{drugFile}{filename of the pickle with the drug codes}
 
-\item{drugAuto}{filename of the drug autoencoder}
-
-\item{sampleSize}{Number of patients to sample from the full target cohort}
+\item{drugAutoFile}{filename of the drug autoencoder}
 }
 \value{
 CovariateData object with covariates, covariateRef, and analysisRef tables

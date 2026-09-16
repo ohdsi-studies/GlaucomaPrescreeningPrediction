@@ -135,7 +135,8 @@ trainSaveModel <- function(
 }
 
 sweepFineTuneRuns <- function(
-        results, # output of model validation
+        plpData,
+        outcomeId,
         aeSource = "frozen",
         nList = c(20, 40, 60, 80, 100),
         numUnfrozenLayers = c(0, 1, 3, 6, 7, 8, 9, 11, 12, 15, 16, 18),
@@ -144,10 +145,24 @@ sweepFineTuneRuns <- function(
         seed = 124
 ) {
 
+  pop <- PatientLevelPrediction::createStudyPopulation(
+    plpData = plpData,
+    outcomeId = outcomeId,
+    populationSettings = PatientLevelPrediction::createStudyPopulationSettings(
+      washoutPeriod = 180,
+      firstExposureOnly = TRUE,
+      removeSubjectsWithPriorOutcome = TRUE,
+      requireTimeAtRisk = FALSE,
+      priorOutcomeLookback = 9999,
+      includeAllOutcomes = FALSE,
+      riskWindowStart = 0,
+      riskWindowEnd = 365*3
+    ))
+
   # training data is 70% random sample (seed for repro) for plpData
   sparseData <- PatientLevelPrediction::toSparseM(
-    cohort = results$prediction,
-    plpData = results$plpData,
+    cohort = pop,
+    plpData = plpData,
     map = covariateMap()
     )
 
@@ -201,5 +216,92 @@ sweepFineTuneRuns <- function(
     return(invisible(result))
 }
 
+executeFineTuning <- function(
+    connectionDetails,
+    cdmDatabaseSchema,
+    cohortDatabaseSchema,
+    tempEmulationSchema = Sys.getenv("DATABRICKS_SCRATCH_SCHEMA"),
+    cohortTable = 'glau_screen_cohort',
+    targetId = 23884,
+    outcomeId = 23933,
+    sampleSize = NULL,
+    model = c('ALL_OF_US_8_17_26_221','ALL_OF_US')[1],
+    modelType = c('.keras','.h5')[1],
+    minCellCount = minCellCount, # not currently used
+    outputFolder = outputFolder
+    ){
+
+  plpModel <- GlaucomaPrescreeningPrediction::getModel(
+    modelName = paste0('model_',model,modelType),
+    conditionFile = paste0('diag_codes_',model,'.pkl'),
+    conditionAutoFile = paste0('diag_autoencoder_model_',model,modelType),
+    drugFile = paste0('drugs_codes_',model,'.pkl'),
+    drugAutoFile = paste0('drugs_autoencoder_model_',model,modelType)
+  )
+
+  plpData <- PatientLevelPrediction::getPlpData(
+    databaseDetails = PatientLevelPrediction::createDatabaseDetails(
+      connectionDetails = connectionDetails,
+      cdmDatabaseSchema = cdmDatabaseSchema,
+      tempEmulationSchema = tempEmulationSchema,
+      cohortDatabaseSchema = cohortDatabaseSchema,
+      outcomeDatabaseSchema = cohortDatabaseSchema,
+      cohortTable = cohortTable,
+      outcomeTable = cohortTable,
+      targetId = targetId,
+      outcomeIds = outcomeId
+    ),
+    covariateSettings = plpModel$modelDesign$covariateSettings,
+    restrictPlpDataSettings = PatientLevelPrediction::createRestrictPlpDataSettings(
+      sampleSize = sampleSize,
+      washoutPeriod = 180
+    )
+  )
+
+  fineTuning <- sweepFineTuneRuns(
+    plpData, # output of model validation
+    outcomeId = outcomeId,
+    aeSource = "frozen",
+    nList = c(20, 40, 60, 80, 100),
+    numUnfrozenLayers = c(1), # only last layer is unfrozen
+    classWeight = NULL,
+    baseModel = "model_ALL_OF_US_8_17_26_221.keras",
+    seed = 124
+  )
+
+  # 20% fine tuning
+
+  if(!dir.exists(file.path(outputFolder, 'fine_tune'))){
+    dir.create(file.path(outputFolder, 'fine_tune'))
+  }
+
+  aucTest <- pROC::ci.auc(fineTuning[[i]]$testPred[,2], fineTuning[[i]]$testPred[,1])
+  aucVal <- pROC::ci.auc(fineTuning[[i]]$valPred[,2], fineTuning[[i]]$valPred[,1])
+
+  for(i in 1:length(fineTuning)){
+    results <- data.frame(
+      testN = nrow(fineTuning[[i]]$testPred),
+      testO = sum(fineTuning[[i]]$testPred[,2]),
+      testAucLb = aucTest[1],
+      testAuc = aucTest[2],
+      testAucUb = aucTest[3],
+      testMeanPred = mean(fineTuning[[i]]$testPred[,2]),
+      testMeanObs = mean(fineTuning[[i]]$testPred[,1]),
+
+      valN = nrow(fineTuning[[i]]$valPred),
+      valO = sum(fineTuning[[i]]$valPred[,2]),
+      valAucLb = aucVal[1],
+      valAuc = aucVal[2],
+      valAucUb = aucVal[3],
+      valMeanPred = mean(fineTuning[[i]]$valPred[,2]),
+      valMeanObs = mean(fineTuning[[i]]$valPred[,1])
+    )
+
+    write.csv(
+      results, file.path(outputFolder, 'fine_tune', paste0(i,'.csv'))
+    )
+  }
+
+}
 
 

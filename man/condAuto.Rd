@@ -7,8 +7,9 @@
 condAuto(
   trainData,
   featureEngineeringSettings = list(conditionAnalysisId = 101, conditionCodeLoc =
-    system.file("models/diag_codes.pkl", package = "GlaucomaPrescreeningPrediction"),
-    autoEncoderLoc = system.file("models/diag_autoencoder_model_ALL_OF_US.h5", package =
+    system.file("models/diag_codes_ALL_OF_US.pkl", package =
+    "GlaucomaPrescreeningPrediction"), autoEncoderLoc =
+    system.file("models/diag_autoencoder_model_ALL_OF_US.h5", package =
     "GlaucomaPrescreeningPrediction"))
 )
 }

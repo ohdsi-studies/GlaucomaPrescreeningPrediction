@@ -38,24 +38,20 @@ options(sqlRenderTempEmulationSchema = tempEmulationSchema)
 # get data
 connectionDetails <- <add connection details>
 
-# create cohorts for study
-GlaucomaPrescreeningPrediction::generateCohorts(
-    connectionDetails = connectionDetails,
-    cdmDatabaseSchema = cdmDatabaseSchema,
-    cohortDatabaseSchema = cohortDatabaseSchema,
-    cohortTableName  = cohortTable,
-    tempEmulationSchema = tempEmulationSchema
-    )
-
-# run the model
-results <- GlaucomaPrescreeningPrediction::execute(
-    connectionDetails = connectionDetails,
-    cdmDatabaseSchema = cdmDatabaseSchema,
-    cohortDatabaseSchema = cohortDatabaseSchema,
-    tempEmulationSchema = tempEmulationSchema,
-    cohortTable = cohortTable,
-    targetId = 23884,
-    outcomeId = 23933,
-    sampleSize = 40000
+# run all analyses
+GlaucomaPrescreeningPrediction::executeGlaucoma(
+  connectionDetails = connectionDetails,
+  cdmDatabaseSchema = cdmDatabaseSchema,
+  cohortDatabaseSchema = cohortDatabaseSchema,
+  cohortTable  = cohortTable,
+  tempEmulationSchema = tempEmulationSchema,
+    outputFolder = file.path(getwd(),'GlaucomaPrescreeningPredictionAll'),
+    minCellCount = 5,
+    runCohortGeneration = TRUE,
+    runCharacterization = TRUE,
+    runValidation = TRUE,
+    runFineTune = TRUE,
+    runModelDevelopment = TRUE,
+    sampleSize = 1000000 # can make this bigger if you have time to run
 )
 ```
