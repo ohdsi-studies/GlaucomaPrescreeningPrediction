@@ -275,10 +275,10 @@ executeFineTuning <- function(
     dir.create(file.path(outputFolder, 'fine_tune'))
   }
 
-  aucTest <- pROC::ci.auc(fineTuning[[i]]$testPred[,2], fineTuning[[i]]$testPred[,1])
-  aucVal <- pROC::ci.auc(fineTuning[[i]]$valPred[,2], fineTuning[[i]]$valPred[,1])
-
   for(i in 1:length(fineTuning)){
+    aucTest <- pROC::ci.auc(fineTuning[[i]]$testPred[,2], fineTuning[[i]]$testPred[,1])
+    aucVal <- pROC::ci.auc(fineTuning[[i]]$valPred[,2], fineTuning[[i]]$valPred[,1])
+
     results <- data.frame(
       testN = nrow(fineTuning[[i]]$testPred),
       testO = sum(fineTuning[[i]]$testPred[,2]),
